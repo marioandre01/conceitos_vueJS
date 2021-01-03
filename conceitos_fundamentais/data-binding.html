@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedade armazenada</title>   
+</head>
+<body>
+
+    <div class="" id="computed">
+        <h1 v-bind:title="tagMessage">{{ message }}</h1>
+        <h2>Essa mensagem em letras garrafais seria assim: {{ message.toUpperCase() }}</h2>
+        <p>Meu nome é {{ person.name }}. Tenho {{ person.age }} anos</p>
+        <span v-html="tag"></span>
+        
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#computed',
+            data: {
+                message: 'Mensagem a ser exibida',
+                person: {
+                    name: 'Mário',
+                    age: '29'
+                },
+                tag: '<button>Clique Aqui</button>',
+                tagMessage: 'Essa é uma tag de título'
+
+            }
+        })
+
+    </script>
+</body>
+</html>

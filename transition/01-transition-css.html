@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transições CSS</title>   
+    <style>
+        /* Enquano estiver aparecendo, enquanto a animação estiver ocorrendo */
+        /* opacity: de 0 para 1, o tempo para ocorrer essa transição é 0.5segundo */
+        /* modo de transição: ease - Valor padrão - Especifica um efeito de transição com início lento, depois rápido e, a seguir, fim lento*/
+        .first-enter-active {
+            transition: opacity .5s ease;
+        }
+
+        /* Enquano a animação estiver ocorrendo, no sentido de sumir */
+        /* modo da transição: ease-out - Especifica um efeito de transição com um final lento*/
+        .first-leave-active {
+            transition: opacity .5s ease-out;
+        }
+        /* first-enter - quando a aninamação não começou, ela esta começando*/
+        /* first-leave-to - quando a animação começar e terminar em outro ponto*/
+        /* Nesses 2 momentos a opacidade vai ser zero */
+        .first-enter, .first-leave-to {
+            opacity: 0;
+        }
+
+        /* transição para mostrar texto */
+        .second-enter-active {
+            transition: all .3s linear;
+        }
+
+        /* transição para ocultar texto */
+        .second-leave-active {
+            transition: all .5s linear; 
+        }
+
+        .second-enter, .second-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="transitions">
+
+        <transition name="first">
+            <h2 v-if="show">Hcode Treinamentos</h2>
+        </transition>
+
+        <hr>
+
+        <transition name="second">
+            <div v-if="show2">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Deleniti delectus impedit facilis consequatur nam, sunt neque 
+                quos enim, molestiae laborum natus vero quidem sequi quia 
+                similique et, incidunt in doloribus?
+            </div>
+        </transition>
+
+        <button @click="show2 = !show2">Clique aqui</button>
+       
+     
+    </div>
+
+    <!-- Adicionando vue.js no projeto -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#transitions',
+            data: {
+               show: true,
+               show2: false
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
+

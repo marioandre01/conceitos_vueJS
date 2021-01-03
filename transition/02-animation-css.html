@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações CSS</title>   
+    <style>
+        /* Enquano estiver aparecendo, enquanto a animação estiver ocorrendo */
+       
+        .animation-first-enter-active {
+           animation: animation_first 1s; 
+        }
+
+        /* Enquano a animação estiver ocorrendo, no sentido de sumir */
+        /* reverse - o processo contrario de .animation-first-enter-active */
+        .animation-first-leave-active {
+            animation: animation_first 1s reverse;    
+        }
+        @keyframes animation_first {
+            from {
+                background: #fff;
+            }
+            to {
+                background: #999;
+            }
+        }
+        /* */
+
+        .animation-second-enter-active {
+            animation: animation_second 1s;
+        }
+
+        .animation-second-leave-active {
+            animation: animation_second 1.5s reverse;
+        }
+        @keyframes animation_second {
+            0% {
+                background-color: #fff;
+                font-size: 20px;
+            }
+            50% {
+                background-color: red;
+                font-size: 50px;
+            }
+            100% {
+                background-color: #fff;
+                font-size: 20px;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <div id="animation">
+
+        <transition name="animation-first">
+            <h2 v-if="show">Hcode Treinamentos Animações</h2>
+        </transition>
+
+        <hr> 
+
+        <transition name="animation-second">
+        <div v-if="show2">Vue.js é demais!!</div>
+        </transition>
+
+        <button @click="show2 = !show2">Clique aqui</button>
+       
+     
+    </div>
+
+     <!-- Adicionando vue.js no projeto -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#animation',
+            data: {
+               show: true,
+               show2: false
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
+

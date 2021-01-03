@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações CSS - Duração</title>   
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+<body>
+
+    <div id="animation">
+
+        <h1 v-if="show">Hcode Treinamentos Animações</h1>
+
+        <!-- DURAÇÃO FIXA <transition 
+            name="animation-first"
+            enter-active-class="bounceIn"
+            leave-active-class="bounceOut"
+            :duration="800"
+        >
+            <h2 v-if="show">Djalma, vora gravar!</h2>
+        </transition> -->
+
+        <transition 
+            name="animation-first"
+            enter-active-class="animated rollIn"
+            leave-active-class="animated zoomOut"
+            :duration="{ enter: 900, leave:900 }"
+        >
+            <h2 v-if="show">Djalma, bora gravar!</h2>
+        </transition>
+
+        <button @click="show = !show">Realizar a animação</button>
+       
+     
+    </div>
+
+     <!-- Adicionando vue.js no projeto -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#animation',
+            data: {
+               show: true,
+            }           
+            
+        })
+
+    </script>
+</body>
+</html>
+

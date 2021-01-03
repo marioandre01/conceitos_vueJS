@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações CSS personalizadas</title>   
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+</head>
+<body>
+
+    <div id="animation">
+
+        <transition 
+            name="animation-first"
+            enter-active-class="animated zoomIN"
+            leave-active-class="animated zoomOutDown"
+        >
+            <h2 v-if="show">Hcode Treinamentos Animações</h2>
+        </transition>
+
+        <button @click="show = !show">Realizar a aniamação</button>
+       
+     
+    </div>
+
+     <!-- Adicionando vue.js no projeto -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#animation',
+            data: {
+               show: true,
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
+

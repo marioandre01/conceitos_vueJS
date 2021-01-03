@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas v-show</title>   
+</head>
+<body>
+
+    <div class="" id="directives">
+
+        <!-- com v-show a propriedade css display é colocada em none para ocultar a tag -->
+        <H1 v-show="isLogged"> V-SHOW - Seja bem vindo a área administrativa</H1>
+
+        <!--  com v-if ele remove a tag -->
+        <H1 v-if="isLogged">V-IF Seja bem vindo a área administrativa</H1>
+
+        
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+               isLogged: true
+            }
+        })
+
+    </script>
+</body>
+</html>
+

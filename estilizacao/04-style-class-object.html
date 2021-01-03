@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos com Classe - Objetos</title>   
+    <style>
+        .logged {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="styles">
+
+        <h1 v-bind:class="{ logged: isLogged }">Seja bem vindo ao sistema</h1>
+     
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#styles',
+            data: {
+               isLogged: false
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
+
